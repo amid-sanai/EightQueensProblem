@@ -1,10 +1,10 @@
 import java.util.LinkedList;
 
-public class EightQueen {
+public class EightQueens {
     private final LinkedList<int[]> queensOnBoard = new LinkedList<>();
     private final LinkedList<LinkedList<int[]>> possiblePositions = new LinkedList<>();
 
-    public EightQueen() {
+    public EightQueens() {
         solve(0);
     }
 
