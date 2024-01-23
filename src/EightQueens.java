@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.util.Formatter;
 import java.util.LinkedList;
 
 public class EightQueens {
@@ -42,6 +44,21 @@ public class EightQueens {
                 System.out.printf("(%d, %c) ", positions[0] + 1, (char) positions[1] + 97);
             }
             System.out.println();
+        }
+    }
+
+    public void writeToFile() {
+        try {
+            Formatter output = new Formatter("positions.txt");
+            for (LinkedList<int[]> possiblePosition : possiblePositions) {
+                for (int[] positions : possiblePosition) {
+                    output.format("(%d, %c) ", positions[0] + 1, (char) positions[1] + 97);
+                }
+                output.format("%n");
+            }
+            output.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 }
